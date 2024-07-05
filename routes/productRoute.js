@@ -4,6 +4,12 @@ const { Category } = require("../models/categoryModel");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
+  let filter = {};
+    if(req.query.categories)
+    {
+         filter = {category: req.query.categories.split(',')}
+    }
+
   const productList = await Product.find().populate("category");
 
   if (!productList) {

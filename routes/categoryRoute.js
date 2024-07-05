@@ -11,4 +11,6 @@ router.get("/", async (req, res) => {
   res.send(categoryList);
 });
 
+
+
 module.exports = router;
